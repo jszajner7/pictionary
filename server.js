@@ -108,9 +108,11 @@ io.on('connect', function(socket) {
    })
    socket.on('disconnect', function(event){
         removeUser(socket.userID);
-        io.emit('updateUsers',usersArray)
+        io.emit('updateUsers',usersArray);
+        console.log('A user has disconnected');
    });
 });
+    
 
 server.listen(process.env.PORT ||8080);
 
